@@ -1,0 +1,29 @@
+# macOS Finder things
+*.DS_Store
+**/._.DS_Store
+
+# IDE things
+.vscode
+
+# Python setup and runtime things
+**/__pycache__
+*egg-info/
+*.egg
+
+# Temporary/swap files from text editors
+**/*~
+**/*.swp
+**/._*
+
+# Figures
+*.pdf
+*.png
+
+# Built documentation
+doc/build*
+
+# Extracted data
+examples/data/Bishop_etal2022/moving/*.npy
+examples/data/Bishop_etal2022/noise/*.npy
+examples/data/Bishop_etal2022/persistent/*.npy
+examples/data/Bishop_etal2022/transient/*.npy

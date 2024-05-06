@@ -1,0 +1,31 @@
+# Analyst Review
+# IMS I53US 10/3/2019 01:00 - 05:00 UTC
+
+# Data pulled from 00:40 - 05:20 UTC
+# Run an hour at a time (3600 seconds)
+
+# 1200 seconds start (01:00 - 02:00)
+01:33:51 (3231 s) (168.15 deg, 337 m/s, 7.5 F-stat) (AFD Detection)
+01:38:36 (3516 s) (-167.9 deg, 335.7 m/s, 2.1 F-stat)
+01:50:53 (4253 s) (-166.7 deg, 336.0 m/s, 2.3 F-stat)
+
+# 4800 seconds start (02:00 - 03:00)
+02:01:55 (4915 s) (-144.7 deg, 329.4 m/s, 2.0 F-stat)
+02:32:05 (6725 s) (-150.1, 341 m/s, 3.1 F-stat) (AFD Detection)
+02:33:34 (6814 s) (171.1 deg, 375 m/s, 2.5 F-stat) (moving?)
+02:40:20 (7220 s) (-147.6 deg, 343 m/s, 2.1 F-stat)
+
+# 8400 seconds start (03:00 - 04:00)
+03:10:25 (9025 s) (129.0, 352 m/s, 1.9 F-stat)
+03:15:10 (9310 s) (135.2 deg, 340 m/s, 2.0 F-stat)
+03:21:40 (9700 s) (-162.0 deg, 331 m/s, 1.9 F-stat)
+03:31:30 (10290 s) (-143.3 deg, 339 m/s, 5.8 F-stat) (AFD Detection)
+03:50:28 (11428 s) (-147.4 deg, 342 m/s, 7.7 F-stat) (AFD Detection)
+03:54:15 (11655 s) (-96.1 deg, 357 m/s, 3.9 F-stat)
+03:57:45 (11865 s) (-124.5 deg, 350 m/s, 2.6 F-stat)
+
+# 12000 seconds start (04:00 - 05:00)
+04:00:42 (12042 s) (-174.3 deg, 334 m/s, 2.1 F-stat)
+04:26:25 (13585 s) (-171.5 deg, 335 m/s, 2.4 F-stat)
+04:33:15 (13995 s) (-83.7 deg, 330 m/s, 2.1 F-stat)
+04:43:15 (14595 s) (-165.0 deg, 333 m/s, 2.4 F-stat)

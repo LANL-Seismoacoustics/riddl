@@ -1,0 +1,25 @@
+# © 2024. Triad National Security, LLC. All rights reserved.
+name: riddl_env
+
+channels:
+    - conda-forge
+    - defaults
+
+dependencies:
+    - matplotlib-base
+    - numpy <= 1.21
+    - python = 3.8
+    - scipy
+    - obspy
+    - scikit-learn
+    - tensorflow
+    - regex
+    - ipython
+    - sphinx
+    - sphinx_rtd_theme
+    - jupyterlab
+    - pandas
+    - pip
+
+    - pip:
+        - -e .
