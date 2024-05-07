@@ -60,6 +60,7 @@ models.add_command(fk)
 fk.add_command(models_cli.build)
 fk.add_command(models_cli.train)
 fk.add_command(models_cli.detect)
+fk.add_command(models_cli.evaluate)
 
 # Add model option branches
 @click.group('synthetic', short_help="Generate synthetic data", context_settings={'help_option_names': ['-h', '--help']})
