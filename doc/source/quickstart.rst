@@ -46,6 +46,7 @@ An example script, :code:`pre_process.py`, is provided that does the following, 
 3. The machine learning architecture can only accept arrays that are 241 x 3. The last **three** columns and the first **241** points in the array will be used for ML processing.
 
 This section will eventually be replaced by a more extensive GUI for analyst labelling. For now, we assume that we know that the first window contains a transient, and the next two windows are labelled as "noise."
+The provided array data in the :code:`/examples/data/Bishop_etal2022` directory is compressed; before running the script, be sure to extract the data with :code:`tar -zxvf FILE_NAME` or similar.
 
 A simple workflow for the that uses this script is below:
 
@@ -79,7 +80,7 @@ An example file :code:`build_tensors.py` is provided in the :code:`examples` dir
 
 This function pulls files from the :code:`Transient`, :code:`Noise`, :code:`Moving`, and :code:`Persistent` directories in the :code:`Bishop_etal2022` and uses 75\% of the data for training.
 The :code:`Transient` and :code:`Moving` examples are merged, and the resulting classes are balanced to 857 examples each. The resulting tensors are written to
-:code:`soi_test_` testing and training tensors.
+:code:`soi_example_` testing and training tensors.
 
 Using the CLI, we can build tensors from .npy files in the same way as:
 
