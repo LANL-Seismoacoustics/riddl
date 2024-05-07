@@ -149,7 +149,7 @@ def write_tensor_data(input_files: list, output_id: str, labels: list, test_frac
 
     # Load data and convert labels to integers
     for jj, file in enumerate(input_files):
-        arr = np.load(file)
+        arr = np.load(file, allow_pickle=True)
         if np.shape(arr)[1] != n:
             print("Warning! File length doesn't match: " + file)
         
@@ -263,7 +263,7 @@ def write_tensor_data(input_files: list, output_id: str, labels: list, test_frac
         # Training Data
         data_array = np.zeros((len(input_files_train), 3), dtype='object')
         for jj, file in enumerate(input_files_train):
-            arr = np.load(file)
+            arr = np.load(file, allow_pickle=True)
             file = file.split('/')[-1]
             name = file.split('.')[1]
             data_array[jj, 0] = name
@@ -278,7 +278,7 @@ def write_tensor_data(input_files: list, output_id: str, labels: list, test_frac
         # Testing Data
         data_array = np.zeros((len(input_files_test), 3), dtype='object')
         for jj, file in enumerate(input_files_test):
-            arr = np.load(file)
+            arr = np.load(file, allow_pickle=True)
             file = file.split('/')[-1]
             name = file.split('.')[1]
             data_array[jj, 0] = name
@@ -297,7 +297,7 @@ def write_tensor_data(input_files: list, output_id: str, labels: list, test_frac
 
         # Loop through and write station, channel count, max F-stat, and label
         for jj, file in enumerate(input_files):
-            arr = np.load(file)
+            arr = np.load(file, allow_pickle=True)
             file = file.split('/')[-1]
             name = file.split('.')[1]
             data_array[jj, 0] = name
