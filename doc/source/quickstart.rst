@@ -88,22 +88,24 @@ Using the CLI, we can build tensors from .npy files in the same way as:
 
         riddl models fk build --data-dir ./data/Bishop_etal2022 --output-id soi_test --output-dir ./models/example --labels-file labels_file.txt --merge-labels-file merge_labels_file.txt
 
-We found that configuration based on text files works well to manage the categorical data: the labels, which labels to merge, if any; and file patterns to use specific data filtered by some criterion - such as station names.
+We found that configuration based on text files works well to manage the categorical data: (1) the labels, (2) which labels to merge, if any; and (3) file patterns to filter the input array-processed data - such as station names.
 
-* :code:`labels_file.txt`: A list of the labels for the ML model, with each label on a separate line.
+#. :code:`labels_file.txt`: A list of the labels for the ML model, with each label on a separate line.
 
-* :code:`merge_labels_file.txt`: An optional list of the labels to merge when training the ML model, with each label on a separate line.
+#. :code:`merge_labels_file.txt`: An optional list of the labels to merge when training the ML model, with each label on a separate line.
 
-* :code:`file_pattern.txt`: An optional list of file patterns to add flexibility in which sets of data are used for training. Each unique file pattern, e.g., :code:`I56` (no wildcard characters required), should appear on a separate line. We will use this capability in the transportability analysis.
+#. :code:`file_pattern.txt`: An optional list of file patterns to add flexibility in which sets of data are used for training. Each unique file pattern, e.g., :code:`I56` (no wildcard characters required), should appear on a separate line. We will use this capability in the transportability analysis below.
 
 ---------------------------
 Training the model
 ---------------------------
-To train a model using pre-split training and testing data use the :code:`train` command:
+To train a model using pre-split training and testing data use the :code:`train` command (be aware that training can be time intensive, requiring multiple minutes per fold):
 
     .. code-block:: bash
 
       riddl models fk train  --data-id ./models/train/soi/soi --num_folds 1
+
+The :code:`--data-id` flag is used to specify the file pattern (with relative directory) where training (:code:`_train*`) and testing (:code:`_test*`) tensors can be found.
 
 To use a k-fold split to save the best performing model, set the number of folds > 1.
 
@@ -112,7 +114,6 @@ To use a k-fold split to save the best performing model, set the number of folds
       riddl models fk train  --data-id ./models/train/soi/soi --num_folds 5
 
 In these examples, the training and test data used in the manuscript are in the :code:`/models/train` folder. The pre-trained models from the manuscript are in the :code:`/models/use` folder.
-The final specifier in :code:`data-id`, :code:`soi` above, is a pattern for :code:`_test*` and :code:`_train*` files.
 
 The provided data splits and pre-trained models are:
 
@@ -126,7 +127,7 @@ The provided data splits and pre-trained models are:
 Running the detector
 ---------------------------
 
-Once the raw infrasound array data has been beamformed, we can run the ML detector.
+Once raw infrasound data from an array has been beamformed, we can run the ML detector.
 For example, we can recreate Figure 5 of Bishop et al. 2022. The SAC files and InfraPy configuration file are provided in "examples/data/Bishop_etal2022/Fig5".
 
 
@@ -156,7 +157,7 @@ Plotted with the analyst picks (:code:`analyst_review.txt`) and adaptive F detec
     :width: 1200px
     :align: center
 
-This script was created with the :code:`plot_fig5.py` file. The red dashed lines in the top row show the manual analyst picks. The green and yellow dashed lines in
+This script was created with the :code:`plot_fig5.py` file, which can be run from the :code:`infrapy_env` conda environment. The red dashed lines in the top row show the manual analyst picks. The green and yellow dashed lines in
 the bottom two rows show the adaptive F-detector detections with values of 0.05 (green) and 0.01 (yellow). The blue regions in the figure denote where the machine learning model
 :code:`soi2` declared a transient detection. 
 
@@ -175,6 +176,7 @@ We'll do this with two separate command line calls:
 
     .. code-block:: bash
 
+      conda activate riddl_env
       riddl models fk build --data-dir ./data/Bishop_etal2022 --output-id transportability_test --output-dir . --labels-file labels_file.txt --merge-labels-file merge_labels_file.txt --file_pattern pattern_file.txt
       riddl models fk build --data-dir ./data/Bishop_etal2022 --output-id I57 --output-dir . --labels-file labels_file.txt --test-fraction 0.0 --merge-labels-file merge_labels_file.txt --file_pattern pattern_file2.txt
 
@@ -191,5 +193,4 @@ Finally, we point the trained model at the "I57" data:
 
       riddl models fk evaluate --model-id ./I57_transportability --data-id I57
 
-This command will print a confusion matrix like the following:
 
