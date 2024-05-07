@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     labels = ['transient', 'noise', 'moving', 'persistent']
     merge_labels = ['transient', 'moving']
-    output_dir = "./examples/"
+    output_dir = "."
     output_id = "soi_test"
     test_fraction = 0.25
     file_pattern = None
