@@ -29,7 +29,7 @@ def build(data_dir: str, output_id: str, output_dir: str, labels_file: str, test
     \b
     Example Usage:
     (from the `examples' folder)
-    \t riddl models fk build --data-dir ./data/Bishop_etal2022 --output-id soi_example --output-dir ./models/example --labels-file labels_file.txt --merge-labels-file merge_labels_file.txt
+    \t riddl models fk build --data-dir ./data/Bishop_etal2022 --output-id soi_example --output-dir ./models --labels-file labels_file.txt --merge-labels-file merge_labels_file.txt
     '''
 
     click.echo("")

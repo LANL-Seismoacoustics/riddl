@@ -86,7 +86,7 @@ Using the CLI, we can build tensors from .npy files in the same way as:
 
     .. code-block:: bash
 
-        riddl models fk build --data-dir ./data/Bishop_etal2022 --output-id soi_test --output-dir ./models/example --labels-file labels_file.txt --merge-labels-file merge_labels_file.txt
+        riddl models fk build --data-dir ./data/Bishop_etal2022 --output-id soi_test --output-dir ./models --labels-file labels_file.txt --merge-labels-file merge_labels_file.txt
 
 We found that configuration based on text files works well to manage the categorical data: (1) the labels, (2) which labels to merge, if any; and (3) file patterns to filter the input array-processed data - such as station names.
 
