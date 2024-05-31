@@ -142,7 +142,7 @@ def write_tensor_data(input_files: list, output_id: str, labels: list, test_frac
     file_cnt = len(input_files)
     # m rows = (time, fk, baz, tr_vel)
     # n data points
-    m, n = np.load(input_files[0]).shape
+    m, n = np.load(input_files[0], allow_pickle=True).shape
     # Ignore time row
     X = np.zeros((file_cnt, n, (m - 1)))
     Y = np.zeros(file_cnt, dtype=int)
